@@ -362,7 +362,7 @@ class UrlManager extends BaseUrlManager
             return $la < $lb ? 1 : -1;
         });
         $pattern = implode('|', $parts);
-        if (preg_match("#^($pattern)\b(/?)#i", $pathInfo, $m)) {
+        if (preg_match("#^($pattern)\b(/?)#iu", $pathInfo, $m)) {
             $this->_request->setPathInfo(mb_substr($pathInfo, mb_strlen($m[1].$m[2])));
             $code = $m[1];
             if (isset($this->languages[$code])) {
